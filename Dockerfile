@@ -14,7 +14,6 @@ RUN mkdir -p /root/.m2 && \
     echo "    </mirror>" >> /root/.m2/settings.xml && \
     echo "  </mirrors>" >> /root/.m2/settings.xml && \
     echo "</settings>" >> /root/.m2/settings.xml
-git
 RUN mvn dependency:go-offline -Daether.dependencyCollector.impl=bf
 COPY src/ /app/src/
 RUN mvn package
