@@ -28,3 +28,4 @@ services:
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/sugar?useUnicode=true&characterEncoding=utf8
       SPRING_DATASOURCE_USERNAME: root
+      MYSQL_ROOT_PASSWORD: 123456
