@@ -24,6 +24,33 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/ `sugar` /*!40100 DEFAULT CHARACTER SET 
 USE `sugar`;
 
 --
+-- Table structure for table `product`
+--
+
+DROP TABLE IF EXISTS `product`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `product` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `product_name` varchar(255) NOT NULL COMMENT '商品名称',
+  `dir_no` int DEFAULT NULL COMMENT '分类编号',
+  `sale_price` int DEFAULT NULL COMMENT '零售价',
+  `brand` varchar(255) DEFAULT NULL COMMENT '品牌',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `product`
+--
+
+LOCK TABLES `product` WRITE;
+/*!40000 ALTER TABLE `product` DISABLE KEYS */;
+INSERT INTO `product` VALUES (1,'鞋子',1,0,'sugar'),(2,'裤子',1,100,'sugar'),(3,'衣服',2,110000,'sugar'),(4,'帽子',2,110000,'sugar'),(5,'眼镜',2,11,'sugar'),(6,'书包',3,110,'sugar'),(7,'鼠标',4,209,'sugar');
+/*!40000 ALTER TABLE `product` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `role`
 --
 
@@ -90,6 +117,8 @@ CREATE TABLE `user` (
   `role_id` int NOT NULL COMMENT '角色',
   `email` varchar(64) DEFAULT NULL COMMENT '邮箱',
   `nick_name` varchar(48) DEFAULT NULL COMMENT '昵称',
+  `age` int DEFAULT NULL COMMENT '年龄',
+  `phone` varchar(32) DEFAULT NULL COMMENT '电话号码',
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `email` (`email`),
@@ -104,7 +133,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1000,'admin','$2a$10$U2mXHCTIxbiXwtjoX5YAKeNAHop7MvwzqAgwaSQfTD7xNsUPqwh4e',2,'admin@sugar.com',''),(1001,'user','$2a$10$U2mXHCTIxbiXwtjoX5YAKeNAHop7MvwzqAgwaSQfTD7xNsUPqwh4e',1,'user@sugar.com',NULL);
+INSERT INTO `user` VALUES (1000,'admin','$2a$10$U2mXHCTIxbiXwtjoX5YAKeNAHop7MvwzqAgwaSQfTD7xNsUPqwh4e',2,'admin@sugar.com','',NULL,NULL),(1001,'user','$2a$10$U2mXHCTIxbiXwtjoX5YAKeNAHop7MvwzqAgwaSQfTD7xNsUPqwh4e',1,'user@sugar.com',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -117,4 +146,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-21 15:39:57
+-- Dump completed on 2023-06-25 15:53:25

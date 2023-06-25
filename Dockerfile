@@ -16,7 +16,7 @@ RUN mkdir -p /root/.m2 && \
     echo "</settings>" >> /root/.m2/settings.xml
 RUN mvn dependency:go-offline -Daether.dependencyCollector.impl=bf
 COPY src/ /app/src/
-RUN mvn package
+RUN mvn package -P prod
 
 FROM openjdk:17
 ARG JAR_FILE=/app/target/*.jar
